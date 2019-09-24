@@ -1,35 +1,21 @@
 # Desafio 1: Strings
 
-Após ler o coding style do kernel Linux, você descobre a mágica que é
-ter linhas de código com no máximo 80 caracteres cada uma.
+## Processo de resolução
+É inserida palavra por palavra na linha, quando uma passa o limite, conta-se a quantidade de caracteres que faltam para preencher até o limite e completa com espaços.
+A solução ficou em O(n).
 
-Assim, você decide que de hoje em diante seus e-mails enviados também
-seguirão um padrão parecido e resolve desenvolver um plugin para te ajudar
-com isso. Contudo, seu plugin aceitará no máximo 40 caracteres por linha.
+## Como utilizar
+```
+npm install
+npm start arg1 arg2 arg3
+```
+Foi usado o mesmo template de Java. Ou seja, os argumentos são:
+- Primeiro: string, que é o texto. O default ẽ o mesmo do desafio.
+- Segundo: int, é o limite da linha. O default é 40.
+- Terceiro: boolean, se o texto é pra ser justificado ou não. O default é true.
 
-Implemente uma função que receba:
-1. um texto qualquer
-2. um limite de comprimento
+## Tratamento de erros e exceções
+Também foi tratado os casos em que alguma palavra é maior que o limite da linha e a entrada que tenha mais de 3 parämetros.
 
-e seja capaz de gerar os outputs dos desafios abaixo.
-
-## Exemplo input
-
-`In the beginning God created the heavens and the earth. Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.`
-
-`And God said, "Let there be light," and there was light. God saw that the light was good, and he separated the light from the darkness. God called the light "day," and the darkness he called "night." And there was evening, and there was morning - the first day.`
-
-O texto deve ser parametrizável e se quiser, pode utilizar um texto de input de sua preferência.
-
-### Parte 1 (Básico) - limite 40 caracteres
-Você deve seguir o exemplo de output [deste arquivo](https://github.com/idwall/desafios/blob/master/strings/output_parte1.txt), onde basta o texto possuir, no máximo, 40 caracteres por linha. As palavras não podem ser quebradas no meio.
-
-### Parte 2 (Intermediário) - limite 40 caracteres
-O exemplo de output está [neste arquivo](https://github.com/idwall/desafios/blob/master/strings/output-parte2.txt), onde além de o arquivo possuir, no máximo, 40 caracteres por linha, o texto deve estar **justificado**.
-
-### Dicas
-- Existe um template para projetos em Java ;)
-
-### Extras
-
-- Parametrização da quantidade de caracteres por linha.
+## Docker
+Foi usado.

@@ -1,31 +1,27 @@
 # Desafio 2: Crawlers
 
-Parte do trabalho na IDwall inclui desenvolver *crawlers/scrapers* para coletar dados de websites.
-Como nós nos divertimos trabalhando, às vezes trabalhamos para nos divertir!
+## Processo de resolução
+Primeiro inspeciona-se a página para saber como chegar até os elementos desejados, depois foi usada a lib "cheerio", que implementa um subconjunto do core de jQuery, para pegar os elementos.
+Como o desafio só queria as threads "naquele momento", não precisou fazer uma busca em profundidade. Se o mesmo fosse preciso, era só pegar o link do botão "next" e fazer o mesmo procedimento.
+Os subreddits foram pesquisados em paralelos.
 
-O Reddit é quase como um fórum com milhares de categorias diferentes. Com a sua conta, você pode navegar por assuntos técnicos, ver fotos de gatinhos, discutir questões de filosofia, aprender alguns life hacks e ficar por dentro das notícias do mundo todo!
+## Como utilizar
+O nome do bot criado foi @CrawlerDesafioIdwallBot, basta pesquisar por ele no próprio Telegram e fazer o procedimento descrito em Entrada. Como ta na nuvem não precisa rodar local.
+Mas, se for rodar, avisa que derrubo o que roda na nuvem, para não dar conflito.
 
-Subreddits são como fóruns dentro do Reddit e as postagens são chamadas *threads*.
+## Tratamento de erros e exceções
+Também tratei os casos: se o corpo da mensagem foi muito grande, se a página não existe, se a página é privada e se a página foi movida (3xx).
 
-Para quem gosta de gatos, há o subreddit ["/r/cats"](https://www.reddit.com/r/cats) com threads contendo fotos de gatos fofinhos.
-Para *threads* sobre o Brasil, vale a pena visitar ["/r/brazil"](https://www.reddit.com/r/brazil) ou ainda ["/r/worldnews"](https://www.reddit.com/r/worldnews/).
-Um dos maiores subreddits é o "/r/AskReddit".
+## Testes unitários ou de integração
+Foi feito, com 100% de cobertura:
+![current coverage](https://i.ibb.co/tsptnCX/Screenshot-from-2019-09-24-07-36-17.png)
 
-Cada *thread* possui uma pontuação que, simplificando, aumenta com "up votes" (tipo um like) e é reduzida com "down votes".
+Além dos testes unitários, esses foram os casos cobertos pelo teste de integração:
 
-Sua missão é encontrar e listar as *threads* que estão bombando no Reddit naquele momento!
-Consideramos como bombando *threads* com 5000 pontos ou mais.
+![current integration test](https://i.ibb.co/86CnQ3b/Screenshot-from-2019-09-24-07-35-43.png)
+
+## Docker
+Foi usado, inclusive na nuvem.
 
 ## Entrada
-- Lista com nomes de subreddits separados por ponto-e-vírgula (`;`). Ex: "askreddit;worldnews;cats"
-
-### Parte 1
-Gerar e imprimir uma lista contendo a pontuação, subreddit, título da thread, link para os comentários da thread e link da thread.
-Essa parte pode ser um CLI simples, desde que a formatação da impressão fique legível.
-
-### Parte 2
-Construir um robô que nos envie essa lista via Telegram sempre que receber o comando `/NadaPraFazer [+ Lista de subrredits]` (ex.: `/NadaPraFazer programming;dogs;brazil`)
-
-### Dicas
- - Use https://old.reddit.com/
- - Qualquer método para coletar os dados é válido. Caso não saiba por onde começar, procure por JSoup (Java), SeleniumHQ (Java), PhantomJS (Javascript) e Beautiful Soup (Python).
+- Lista com nomes de subreddits separados por ponto-e-vírgula (`;`). Ex: /NadaPraFazer cats;randomAopiuwetdsgf

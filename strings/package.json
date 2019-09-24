@@ -1,0 +1,9 @@
+{
+  "name": "strings",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Gustavo Oliveira",
+  "license": "ISC"
+}

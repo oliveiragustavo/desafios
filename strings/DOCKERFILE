@@ -1,0 +1,5 @@
+FROM node:10
+WORKDIR /strings
+COPY . .
+
+CMD [ "npm", "start" ]
